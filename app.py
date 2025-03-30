@@ -2,9 +2,10 @@ from flask import Flask, request
 import pickle
 from PredictionClass import PredictionClass
 import sklearn
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 with open("./model/prediction_class.pickle", "rb") as f:
   prediction_class: PredictionClass = pickle.load(f)
 

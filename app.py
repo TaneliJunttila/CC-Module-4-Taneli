@@ -6,6 +6,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+app.config.from_mapping(CORS_ORIGINS="https://cc-module-3-taneli.onrender.com/")
 with open("./model/prediction_class.pickle", "rb") as f:
   prediction_class: PredictionClass = pickle.load(f)
 

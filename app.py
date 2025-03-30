@@ -18,7 +18,8 @@ def hello_world():
 def test():
     prediction = ["This is bad"]
     result = prediction_class.predict(prediction)
-    return result
+    print(result)
+    return ""
 
 if __name__ == '__main__':
      app.run(host="0.0.0.0", port="8080", debug=False)

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import pickle
 from PredictionClass import PredictionClass
 import sklearn
@@ -14,12 +14,13 @@ def hello_world():
     "<h1>Hello World!</h1>" \
     "<h3>Version: 4</h3>"
 
-@app.route("/test")
-def test():
-    prediction = ["This is bad"]
-    result = prediction_class.predict(prediction)
-    print(result)
-    return ""
+@app.route("/predict", methods=['POST'])
+def predict():
+     data = request.json
+     prediction_text = data['prediction']
+     result = prediction_class.predict([prediction_text])
+     return {"Verdict": result[0]}
+    
 
 if __name__ == '__main__':
      app.run(host="0.0.0.0", port="8080", debug=False)

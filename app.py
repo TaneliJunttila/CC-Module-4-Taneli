@@ -22,3 +22,6 @@ def predict():
      prediction_text = data['prediction']
      result = prediction_class.predict([prediction_text])
      return {"Verdict": result[0]}
+
+if __name__ == '__main__':
+      app.run(host="0.0.0.0", port="8080", debug=False)

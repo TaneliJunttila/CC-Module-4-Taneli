@@ -2,9 +2,10 @@ FROM python:3.12
 WORKDIR /code
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5600
 COPY requirements.txt requirements.txt
-COPY /model /model
 RUN pip install -r requirements.txt
-EXPOSE 8080
+EXPOSE 5600
 COPY . .
-CMD ["flask", "run", "--debug"]
+CMD ["flask", "run"]
+#CMD ["python", "app.py"]

@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    environment: 
+      FLASK_DEBUG: 0
+    ports:
+      - "5600:5600"
